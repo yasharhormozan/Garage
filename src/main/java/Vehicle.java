@@ -4,12 +4,12 @@ abstract class Vehicle {
 
     public String color;
     public int noOfWheels;
-    public String registrationNo;
+    public String regNo;
 
-    public Vehicle(String color,int noOfWheels,String registrationNo) {
+    public Vehicle(String color,int noOfWheels,String regNo) {
         this.color=color;
         this.noOfWheels=noOfWheels;
-        this.registrationNo=registrationNo;
+        this.regNo=regNo;
     }
 
     public Vehicle() {
@@ -31,15 +31,15 @@ abstract class Vehicle {
         this.noOfWheels = noOfWheels;
     }
 
-    public String getRegistrationNo() {
-        return registrationNo;
+    public String getRegNo() {
+        return regNo;
     }
 
-    public void setRegistrationNo(String registrationNo) {
-        this.registrationNo = registrationNo;
+    public void setRegNo(String regNo) {
+        this.regNo = regNo;
     }
 
     void move(){
-        System.out.println("Vehicle with RegNo: "+ this.registrationNo+" is moving!");
+        System.out.println("Vehicle with RegNo: "+ this.regNo+" is moving!");
     }
 }

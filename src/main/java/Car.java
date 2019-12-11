@@ -2,16 +2,16 @@ public class Car extends Vehicle {
 
     private int noOfEngine;
 
-    Car (String color,int noOfWheels,String registrationNo,int noOfEngine){
+    Car (String color,int noOfWheels,String regNo,int noOfEngine){
         this.noOfEngine=noOfEngine;
         this.color=color;
         this.noOfWheels=noOfWheels;
-        this.registrationNo=registrationNo;
+        this.regNo=regNo;
     }
 
     Car () {}
 
-    public int getCylinderVolume() {
+    public int getNoOfEngine() {
         return noOfEngine;
     }
 
@@ -19,12 +19,13 @@ public class Car extends Vehicle {
         this.noOfEngine = noOfEngine;
     }
 
+    @Override
     public void move(){
-        System.out.println("Car with RegNo: " + this.registrationNo+" is driven!!");
+        System.out.println("Car with RegNo: " + this.regNo+" is driven!!");
     }
 
     @Override
     public String toString(){
-        return noOfEngine + "";
+        return "[ Car: "+ color+ ", NO of Engines: " + noOfEngine + ", No of Wheels: "+ noOfWheels + ", Registration No.: "  + regNo + "]";
     }
 }
