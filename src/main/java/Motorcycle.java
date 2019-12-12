@@ -1,17 +1,17 @@
 
 
-public class MotorCycle extends Vehicle {
+public class Motorcycle extends Vehicle {
 
     private double cylinderVolume;
 
-    MotorCycle (String color,int noOfWheels,String regNo,Double cylinderVolume){
+    Motorcycle (String color,int noOfWheels,String regNo,Double cylinderVolume){
         this.cylinderVolume=cylinderVolume;
         this.color=color;
         this.noOfWheels=noOfWheels;
         this.regNo=regNo;
     }
 
-    MotorCycle (){}
+    Motorcycle (){}
 
     public double getCylinderVolume() {
         return cylinderVolume;
@@ -23,7 +23,7 @@ public class MotorCycle extends Vehicle {
 
     @Override
     public void move(){
-        System.out.println("Motor Cycle with RegNo: " + this.regNo+" is ridden!");
+        System.out.println("Motorcycle with RegNo: " + this.regNo+" is ridden!");
     }
 
     @Override

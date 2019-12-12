@@ -1,8 +1,8 @@
 public class Boat extends Vehicle {
 
-    private Double length;
+    private double length;
 
-    Boat (String color,int noOfWheels,String regNo,Double length){
+    Boat (String color,int noOfWheels,String regNo,double length){
         this.length=length;
         this.color=color;
         this.noOfWheels=noOfWheels;
@@ -11,11 +11,11 @@ public class Boat extends Vehicle {
 
     Boat(){}
 
-    public Double getLength() {
+    public double getLength() {
         return length;
     }
 
-    public void setLength(Double length) {
+    public void setLength(double length) {
         this.length = length;
     }
 

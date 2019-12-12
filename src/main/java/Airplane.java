@@ -1,15 +1,15 @@
-public class AirPlane extends Vehicle {
+public class Airplane extends Vehicle {
 
     public int noOfSeat;
 
-    AirPlane (String color,int noOfWheels,String regNo, int noOfSeat){
+    Airplane (String color,int noOfWheels,String regNo, int noOfSeat){
         this.noOfSeat=noOfSeat;
         this.color=color;
         this.noOfWheels=noOfWheels;
         this.regNo=regNo;
     }
 
-    AirPlane(){}
+    Airplane(){}
 
     public int getNoOfSeat() {
         return noOfSeat;

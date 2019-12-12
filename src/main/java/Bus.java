@@ -1,8 +1,8 @@
 public class Bus extends Vehicle {
 
-    private String fuelType;
+    private FuelType fuelType;
 
-    Bus (String color,int noOfWheels,String regNo,String fuelType){
+    Bus (String color,int noOfWheels,String regNo,FuelType fuelType){
         this.fuelType=fuelType;
         this.color=color;
         this.noOfWheels=noOfWheels;
@@ -11,11 +11,11 @@ public class Bus extends Vehicle {
 
     Bus (){}
 
-    public String getFuelType() {
+    public FuelType getFuelType() {
         return fuelType;
     }
 
-    public void setFuelType(String fuelType) {
+    public void setFuelType(FuelType fuelType) {
         this.fuelType = fuelType;
     }
 
