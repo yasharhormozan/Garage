@@ -9,7 +9,9 @@ public class Airplane extends Vehicle {
         this.regNo=regNo;
     }
 
-    Airplane(){}
+    Airplane(Builder builder){
+        super(builder.color, builder.noOfWheels, builder.regNo);
+    }
 
     public int getNoOfSeat() {
         return noOfSeat;

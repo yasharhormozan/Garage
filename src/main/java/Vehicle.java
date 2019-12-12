@@ -42,4 +42,7 @@ abstract class Vehicle {
     void move(){
         System.out.println("Vehicle with RegNo: "+ this.regNo+" is moving!");
     }
+
+
+
 }

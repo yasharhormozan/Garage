@@ -26,6 +26,8 @@ public class Garage {
             Scanner parkOrUnPark = new Scanner(System.in);
             String task = parkOrUnPark.next();
 
+
+            //create
             if (task.toLowerCase().equals("park") ) {
                 if (parkedNo <maxCap){
                     Vehicle vehicle = create();
