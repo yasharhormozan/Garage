@@ -2,20 +2,28 @@ public class Boat extends Vehicle {
 
     private double length;
 
-    Boat (String color,int noOfWheels,String regNo,double length){
+    /*Boat (String color,int noOfWheels,String regNo,double length){
         this.length=length;
         this.color=color;
         this.noOfWheels=noOfWheels;
         this.regNo=regNo;
     }
 
-    Boat(){}
+    Boat(){}*/
+
+    public Boat(Builder builder) {
+
+        super(builder.color, builder.noOfWheels, builder.regNo);
+        this.length = builder.length;
+    }
+
+
 
     public double getLength() {
         return length;
     }
 
-    public void setLength(double length) {
+    private void setLength(double length) {
         this.length = length;
     }
 

@@ -10,7 +10,6 @@ public class Garage {
     static List<Vehicle> garage = new ArrayList<>();
 
 
-
     public static void main(String[] args) {
 
         //Garage garage = new Garage();
@@ -26,19 +25,17 @@ public class Garage {
             Scanner parkOrUnPark = new Scanner(System.in);
             String task = parkOrUnPark.next();
 
-
-            //create
-            if (task.toLowerCase().equals("park") ) {
-                if (parkedNo <maxCap){
+            if (task.toLowerCase().equals("park")) {
+                if (parkedNo < maxCap) {
                     Vehicle vehicle = create();
-                    park (vehicle);
-                }else {
+                    park(vehicle);
+                } else {
 
                     System.out.println("Garage is at max capacity!");
 
                 }
 
-            } else if (task.toLowerCase().equals("unpark")){
+            } else if (task.toLowerCase().equals("unpark")) {
 
                 System.out.println("Please enter the registration No. of the vehicle to be unparked:");
                 Scanner whichCar = new Scanner(System.in);
@@ -52,9 +49,12 @@ public class Garage {
             Scanner exit = new Scanner(System.in);
             answer = exit.next();
 
-        } while (((answer.equals("yes") ) || (answer.equals("y") )));
+        } while (((answer.equals("yes")) || (answer.equals("y"))));
 
-        for (Vehicle vehicle: Garage.garage) {
+        if (Garage.garage.isEmpty())
+            System.out.println("the garage is empty");
+
+        for (Vehicle vehicle : Garage.garage) {
             System.out.println(vehicle.toString());
         }
     }
@@ -62,7 +62,7 @@ public class Garage {
     public static Vehicle findVehicleByRegNo(String regNo) {
         Vehicle vehicle = null;
         for (Vehicle v : Garage.garage) {
-            if (v.getRegNo().equals(regNo) ){
+            if (v.getRegNo().equals(regNo)) {
                 vehicle = v;
             }
         }
@@ -74,7 +74,7 @@ public class Garage {
         List<Vehicle> garageByColor = new ArrayList<Vehicle>();
 
         for (Vehicle vehicle : Garage.garage) {
-            if (vehicle.getRegNo().equals(color) ){
+            if (vehicle.getRegNo().equals(color)) {
                 garageByColor.add(vehicle);
             }
 
@@ -88,7 +88,7 @@ public class Garage {
 
         for (Vehicle vehicle : Garage.garage) {
 
-            if (vehicle.getNoOfWheels()== noOfWheels){
+            if (vehicle.getNoOfWheels() == noOfWheels) {
                 garageByNoOfWheels.add(vehicle);
             }
 
@@ -100,9 +100,9 @@ public class Garage {
 
         List<Airplane> garageByNoOfSeat = new ArrayList<Airplane>();
 
-        for (Vehicle airplane: Garage.garage) {
-            if (((Airplane)airplane).getNoOfSeat()== noOfSeat) {
-                garageByNoOfSeat.add((Airplane)airplane);
+        for (Vehicle airplane : Garage.garage) {
+            if (((Airplane) airplane).getNoOfSeat() == noOfSeat) {
+                garageByNoOfSeat.add((Airplane) airplane);
             }
         }
         return garageByNoOfSeat;
@@ -112,10 +112,10 @@ public class Garage {
 
         List<Boat> garageByLength = new ArrayList<Boat>();
 
-        for (Vehicle boat: Garage.garage) {
-            if (((Boat)boat).getLength() == length) {
+        for (Vehicle boat : Garage.garage) {
+            if (((Boat) boat).getLength() == length) {
                 garageByLength.add((Boat) boat);
-              }
+            }
         }
         return garageByLength;
     }
@@ -124,9 +124,9 @@ public class Garage {
 
         List<Car> garageByNoOfEngine = new ArrayList<Car>();
 
-        for (Vehicle car: Garage.garage) {
-            if (((Car)car).getNoOfEngine() == noOfEngine ) {
-                garageByNoOfEngine.add((Car)car);
+        for (Vehicle car : Garage.garage) {
+            if (((Car) car).getNoOfEngine() == noOfEngine) {
+                garageByNoOfEngine.add((Car) car);
             }
         }
         return garageByNoOfEngine;
@@ -136,9 +136,9 @@ public class Garage {
 
         List<Bus> garageByFuelType = new ArrayList<Bus>();
 
-        for (Vehicle bus: Garage.garage) {
-            if (((Bus)bus).getFuelType() == fuelType ) {
-                garageByFuelType.add((Bus)bus);
+        for (Vehicle bus : Garage.garage) {
+            if (((Bus) bus).getFuelType() == fuelType) {
+                garageByFuelType.add((Bus) bus);
             }
         }
         return garageByFuelType;
@@ -148,8 +148,8 @@ public class Garage {
 
         List<Motorcycle> garageByCylinderVolume = new ArrayList<Motorcycle>();
 
-        for (Vehicle motorcycle: Garage.garage) {
-            if (((Motorcycle)motorcycle).getCylinderVolume() == cylinderVolume ) {
+        for (Vehicle motorcycle : Garage.garage) {
+            if (((Motorcycle) motorcycle).getCylinderVolume() == cylinderVolume) {
                 garageByCylinderVolume.add((Motorcycle) motorcycle);
             }
         }
@@ -157,30 +157,30 @@ public class Garage {
     }
 
 
-
-    public static void park (Vehicle vehicle){
+    public static void park(Vehicle vehicle) {
         garage.add(vehicle);
         parkedNo++;
     }
 
-    public static void unpark (Vehicle vehicle){
+    public static void unpark(Vehicle vehicle) {
         garage.remove(vehicle);
         parkedNo--;
     }
 
     public static Vehicle create() {
-        
+        VehicleType vehicleType;
         String regNo;
         String color;
         int noOfWheels;
 
+
         System.out.println("Type of the vehicle: ");
         Scanner readType = new Scanner(System.in);
-        String type = readType.next();
+        vehicleType = VehicleType.valueOf(readType.next().toUpperCase());
 
         System.out.println("Registration No.: ");
         Scanner readRegNo = new Scanner(System.in);
-        regNo =readRegNo.next();
+        regNo = readRegNo.next();
 
         System.out.println("Color: ");
         Scanner readColor = new Scanner(System.in);
@@ -190,51 +190,92 @@ public class Garage {
         Scanner readNoOfWheels = new Scanner(System.in);
         noOfWheels = readNoOfWheels.nextInt();
 
-        switch (type.toLowerCase()) {
-            case "airplane": {
-                int noOfSeats;
-                System.out.println("No. of Seats: ");
-                Scanner readNoOfSeats = new Scanner(System.in);
-                noOfSeats = readNoOfSeats.nextInt();
-                return new Airplane(color, noOfWheels,regNo, noOfSeats);
+        switch (vehicleType) {
+            case AIRPLANE: {
+                return createAirplane(color, noOfWheels, regNo);
             }
-            case "boat": {
-                double length;
-                System.out.println("Length: ");
-                Scanner readLength = new Scanner(System.in);
-                length = readLength.nextDouble();
-                return new Boat(color,noOfWheels,regNo,length);
+            case BOAT: {
+               return createBoat(color,noOfWheels, regNo);
+        }
+            case BUS: {
+                return createBus(color,noOfWheels, regNo);
             }
-            case "bus": {
-                String fuelType;
-                System.out.println("Fuel Type: ");
-                Scanner readFuelType = new Scanner(System.in);
-                fuelType= readFuelType.next();
-                return new Bus(color,noOfWheels,regNo,FuelType.valueOf(fuelType));
+            case CAR: {
+                return createCar(color,noOfWheels, regNo);
             }
-            case "car": {
-                int noOfEngine;
-
-                System.out.println("No. of Engine: ");
-                Scanner readNoOfEngine = new Scanner(System.in);
-                noOfEngine=readNoOfEngine.nextInt();
-                return new Car (color,noOfWheels,regNo,noOfEngine);
-
-            }
-            case "motorcycle": {
-                double cylinderVolume;
-                System.out.println("No. of Cylinder: ");
-                Scanner readCylinderVolume = new Scanner(System.in);
-                cylinderVolume = readCylinderVolume.nextDouble();
-                return new Motorcycle(color,noOfWheels,regNo,cylinderVolume);
+            case MOTORCYCLE: {
+                return createMotorcycle(color,noOfWheels, regNo);
             }
             default: {
-
                 System.out.println("Vehicle Type is not recognized!");
-
             }
         }
         return null;
+    }
+
+
+
+    public static Airplane createAirplane(String color, int noOfWheels, String regNo) {
+        int noOfSeats;
+
+        System.out.println("No. of Seats: ");
+        Scanner readNoOfSeats = new Scanner(System.in);
+        noOfSeats = readNoOfSeats.nextInt();
+        return (Airplane)Vehicle.builder()
+                .withColor(color)
+                .withNoOfSeat(noOfSeats)
+                .withNoWheels(noOfWheels)
+                .withRegNo(regNo).build(VehicleType.AIRPLANE);
+    }
+
+    public static Boat createBoat(String color, int noOfWheels, String regNo) {
+        double length;
+
+        System.out.println("Length: ");
+        Scanner readLength = new Scanner(System.in);
+        length = readLength.nextDouble();
+        return (Boat)Boat.builder().withColor(color)
+                .withLength(length)
+                .withNoWheels(noOfWheels)
+                .withRegNo(regNo).build(VehicleType.BOAT);
+    }
+
+    public static Bus createBus(String color, int noOfWheels, String regNo) {
+        FuelType fuelType;
+
+        System.out.println("Fuel Type: ");
+        Scanner readFuelType = new Scanner(System.in);
+        fuelType = FuelType.valueOf(readFuelType.next().toUpperCase());
+        return (Bus)Bus.builder().withColor(color)
+                .withFuelType(fuelType)
+                .withNoWheels(noOfWheels)
+                .withRegNo(regNo).build(VehicleType.BUS);
+    }
+
+    public static Car createCar(String color, int noOfWheels, String regNo) {
+        int noOfEngine;
+
+        System.out.println("No. of Engine: ");
+        Scanner readNoOfEngine = new Scanner(System.in);
+        noOfEngine = readNoOfEngine.nextInt();
+        return (Car) Car.builder().withColor(color)
+                .withNoOfEngine(noOfEngine)
+                .withNoWheels(noOfWheels)
+                .withRegNo(regNo).build(VehicleType.CAR);
+
+    }
+
+    public static Motorcycle createMotorcycle(String color, int noOfWheels, String regNo) {
+        double cylinderVolume;
+
+        System.out.println("No. of Cylinder: ");
+        Scanner readCylinderVolume = new Scanner(System.in);
+        cylinderVolume = readCylinderVolume.nextDouble();
+        return (Motorcycle)Motorcycle.builder().withColor(color)
+                .withCylinderVolume(cylinderVolume)
+                .withNoWheels(noOfWheels)
+                .withRegNo(regNo).build(VehicleType.MOTORCYCLE);
+
     }
 }
 

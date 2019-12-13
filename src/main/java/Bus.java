@@ -2,20 +2,25 @@ public class Bus extends Vehicle {
 
     private FuelType fuelType;
 
-    Bus (String color,int noOfWheels,String regNo,FuelType fuelType){
+   /* Bus (String color,int noOfWheels,String regNo,FuelType fuelType){
         this.fuelType=fuelType;
         this.color=color;
         this.noOfWheels=noOfWheels;
         this.regNo=regNo;
     }
 
-    Bus (){}
+    Bus (){}*/
+
+    public Bus(Builder builder) {
+        super(builder.color, builder.noOfWheels, builder.regNo);
+        this.fuelType = builder.fuelType;
+    }
 
     public FuelType getFuelType() {
         return fuelType;
     }
 
-    public void setFuelType(FuelType fuelType) {
+    private void setFuelType(FuelType fuelType) {
         this.fuelType = fuelType;
     }
 

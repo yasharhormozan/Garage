@@ -4,20 +4,25 @@ public class Motorcycle extends Vehicle {
 
     private double cylinderVolume;
 
-    Motorcycle (String color,int noOfWheels,String regNo,Double cylinderVolume){
+    /*Motorcycle (String color,int noOfWheels,String regNo,Double cylinderVolume){
         this.cylinderVolume=cylinderVolume;
         this.color=color;
         this.noOfWheels=noOfWheels;
         this.regNo=regNo;
     }
 
-    Motorcycle (){}
+    Motorcycle (){}*/
+
+    public Motorcycle(Builder builder) {
+        super(builder.color, builder.noOfWheels, builder.regNo);
+        this.cylinderVolume = builder.cylinderVolume;
+    }
 
     public double getCylinderVolume() {
         return cylinderVolume;
     }
 
-    public void setCylinderVolume(double cylinderVolume) {
+    private void setCylinderVolume(double cylinderVolume) {
         this.cylinderVolume = cylinderVolume;
     }
 

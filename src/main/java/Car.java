@@ -2,20 +2,25 @@ public class Car extends Vehicle {
 
     private int noOfEngine;
 
-    Car (String color,int noOfWheels,String regNo,int noOfEngine){
+    /*Car (String color,int noOfWheels,String regNo,int noOfEngine){
         this.noOfEngine=noOfEngine;
         this.color=color;
         this.noOfWheels=noOfWheels;
         this.regNo=regNo;
     }
 
-    Car () {}
+    Car () {}*/
+
+    public Car(Builder builder) {
+        super(builder.color, builder.noOfWheels, builder.regNo);
+        this.noOfEngine = builder.noOfEngine;
+    }
 
     public int getNoOfEngine() {
         return noOfEngine;
     }
 
-    public void setNoOfEngine(int noOfEngine) {
+    private void setNoOfEngine(int noOfEngine) {
         this.noOfEngine = noOfEngine;
     }
 

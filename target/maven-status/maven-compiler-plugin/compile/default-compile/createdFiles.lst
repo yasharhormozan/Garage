@@ -1,8 +1,12 @@
 Airplane.class
 Garage.class
+Vehicle$Builder$1.class
 Vehicle.class
 Bus.class
+Garage$1.class
 Car.class
 FuelType.class
+VehicleType.class
+Vehicle$Builder.class
 Boat.class
 Motorcycle.class

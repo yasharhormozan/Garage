@@ -1,23 +1,30 @@
 public class Airplane extends Vehicle {
 
-    public int noOfSeat;
+    private int noOfSeat;
 
-    Airplane (String color,int noOfWheels,String regNo, int noOfSeat){
+   /* Airplane (String color,int noOfWheels,String regNo, int noOfSeat){
+
         this.noOfSeat=noOfSeat;
         this.color=color;
         this.noOfWheels=noOfWheels;
         this.regNo=regNo;
     }
 
-    Airplane(Builder builder){
-        super(builder.color, builder.noOfWheels, builder.regNo);
+    Airplane (){}*/
+
+    public Airplane(Builder builder) {
+
+        super(builder.color,builder.noOfWheels,builder.regNo);
+        this.noOfSeat = builder.noOfSeat;
+
     }
+
 
     public int getNoOfSeat() {
         return noOfSeat;
     }
 
-    public void setNoOfSeat(int noOfSeat) {
+    private void setNoOfSeat(int noOfSeat) {
         this.noOfSeat = noOfSeat;
     }
 
