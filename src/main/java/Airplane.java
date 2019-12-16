@@ -9,8 +9,8 @@ public class Airplane extends Vehicle {
         this.noOfWheels=noOfWheels;
         this.regNo=regNo;
     }
-
-    Airplane (){}*/
+*/
+    Airplane (){}
 
     public Airplane(Builder builder) {
 

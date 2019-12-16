@@ -8,8 +8,9 @@ public class Car extends Vehicle {
         this.noOfWheels=noOfWheels;
         this.regNo=regNo;
     }
-
-    Car () {}*/
+*/
+    public Car() {
+    }
 
     public Car(Builder builder) {
         super(builder.color, builder.noOfWheels, builder.regNo);
